@@ -8,7 +8,7 @@ services:
       - "8080:8080"
     environment:
       # Cambia esta URL por la de TU repositorio en GitHub (debe ser público).
-      REPO_URL: "https://github.com/TU_USUARIO/demo-pruebas-tempranas.git"
+      REPO_URL: "https://github.com/YovaWarrior/demo-pruebas-tempranas.git"
       ADMIN_PASSWORD: "admin123"
     volumes:
       - jenkins_home:/var/jenkins_home
