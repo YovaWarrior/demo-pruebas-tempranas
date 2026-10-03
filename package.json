@@ -1,0 +1,16 @@
+{
+  "name": "demo-pruebas-tempranas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Demo en vivo del principio 3 (pruebas tempranas): Cucumber + GitHub Actions + Jenkins",
+  "scripts": {
+    "test": "cucumber-js",
+    "test:ci": "cucumber-js --profile ci"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^13.2.1"
+  }
+}

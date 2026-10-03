@@ -1,0 +1,17 @@
+# Levantar:  docker compose up -d --build     (desde la carpeta jenkins)
+# Abrir:     http://localhost:8080   usuario: admin   contraseña: admin123
+services:
+  jenkins:
+    build: .
+    container_name: jenkins-demo
+    ports:
+      - "8080:8080"
+    environment:
+      # Cambia esta URL por la de TU repositorio en GitHub (debe ser público).
+      REPO_URL: "https://github.com/TU_USUARIO/demo-pruebas-tempranas.git"
+      ADMIN_PASSWORD: "admin123"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+
+volumes:
+  jenkins_home:

@@ -1,0 +1,39 @@
+# Configuración automática de Jenkins (Configuration as Code).
+# Crea el usuario admin y el job "pruebas-tempranas" sin pasar por el asistente inicial.
+jenkins:
+  systemMessage: "Demo · Principio 3: Pruebas tempranas"
+  numExecutors: 2
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: "admin"
+          password: "${ADMIN_PASSWORD:-admin123}"
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+
+unclassified:
+  location:
+    url: "http://localhost:8080/"
+
+jobs:
+  - script: >
+      pipelineJob('pruebas-tempranas') {
+        description('Corre los escenarios de Cucumber del repositorio en cada cambio')
+        definition {
+          cpsScm {
+            scm {
+              git {
+                remote { url('${REPO_URL}') }
+                branch('*/main')
+              }
+            }
+            scriptPath('Jenkinsfile')
+            lightweight(false)
+          }
+        }
+        triggers {
+          scm('* * * * *')
+        }
+      }

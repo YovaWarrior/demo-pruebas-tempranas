@@ -1,0 +1,9 @@
+workflow-aggregator
+git
+configuration-as-code
+job-dsl
+junit
+htmlpublisher
+ansicolor
+timestamper
+pipeline-stage-view
