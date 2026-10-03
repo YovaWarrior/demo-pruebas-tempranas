@@ -5,10 +5,10 @@
 // La corrección es una sola línea (está comentada abajo).
 
 function buscar(catalogo, termino) {
-  return catalogo.filter((producto) => producto.nombre.includes(termino));
+  //return catalogo.filter((producto) => producto.nombre.includes(termino));
 
   // Corrección:
-  //return catalogo.filter((producto) => producto.nombre.toLowerCase().includes(termino.toLowerCase()));
+  return catalogo.filter((producto) => producto.nombre.toLowerCase().includes(termino.toLowerCase()));
 }
 
 module.exports = { buscar };
